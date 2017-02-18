@@ -1,0 +1,25 @@
+{
+  "name": "votarvetar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "env2": "^2.1.1",
+    "express": "^4.14.1",
+    "knex": "^0.12.7",
+    "mysql": "^2.13.0",
+    "next": "^2.0.0-beta.18",
+    "objection": "^0.6.2",
+    "path-match": "^1.2.4",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "author": "",
+  "license": "ISC"
+}
