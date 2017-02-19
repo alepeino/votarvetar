@@ -7,9 +7,11 @@
     "dev": "node server.js",
     "build": "next build",
     "start": "node server.js",
+    "knex": "env-cmd .env knex",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "env-cmd": "^4.0.0",
     "env2": "^2.1.1",
     "express": "^4.14.1",
     "knex": "^0.12.7",

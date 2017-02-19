@@ -10,6 +10,8 @@ app.prepare()
 .then(() => {
   const server = express();
 
+	require('./config/db');
+
   // Rutas Next:
   server.get('*', (req, res) => {
     handle(req, res);
