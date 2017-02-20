@@ -2,14 +2,17 @@
   "name": "votarvetar",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
-    "dev": "node server.js",
-    "build": "next build",
-    "start": "node server.js",
+    "clean": "rm -rf dist",
+    "dev": "nodemon src/server.js --exec \"node -r babel-register\"",
+    "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist && next build",
+    "start": "node dist/server.js",
     "knex": "env-cmd .env knex",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test mocha --compilers js:babel-register"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "env-cmd": "^4.0.0",
     "env2": "^2.1.1",
@@ -22,6 +25,16 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-register": "^6.23.0",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0"
+  },
+  "babel": {
+    "presets": [
+      "latest",
+      "next/babel"
+    ]
+  }
 }

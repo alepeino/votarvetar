@@ -61,3 +61,6 @@ typings/
 
 # next build
 .next/
+
+# Babel ES6 build
+dist/
