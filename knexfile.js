@@ -1,4 +1,4 @@
-export default {
+module.exports = {
 
   development: {
     client: process.env.DB_CONNECTION,
@@ -7,8 +7,8 @@ export default {
       port: process.env.DB_PORT,
       user: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
-      database: process.env.DB_DATABASE
-    }
+      database: process.env.DB_DATABASE,
+    },
   },
 
   production: {
@@ -18,8 +18,8 @@ export default {
       port: process.env.DB_PORT,
       user: process.env.DB_USERNAME,
       password: process.env.DB_USERNAME,
-      database: process.env.DB_DATABASE
-    }
-  }
+      database: process.env.DB_DATABASE,
+    },
+  },
 
 };

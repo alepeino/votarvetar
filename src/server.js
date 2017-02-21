@@ -1,9 +1,7 @@
-import env2 from 'env2';
 import next from 'next';
 import express from 'express';
+import config from './config';
 import Opcion from './models/Opcion';
-
-env2('.env');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -12,19 +10,14 @@ const port = process.env.PORT;
 
 app.prepare()
 .then(() => {
-  require('./config/db');
-
   const server = express();
 
-  server.use(function(err, req, res, next) {
-    console.error(err.stack);
-    res.status(500).send('Something broke!');
-  });
+  config.forEach(fn => fn(app, server));
 
-  server.get('/api', (req, res, next) => {
+  server.get('/api', (req, res) => {
     Opcion.query()
-      .then((opciones) => res.send(opciones))
-      .catch;
+      .then(opciones => res.send(opciones))
+      .catch((e) => { throw e; });
   });
 
   server.get('*', (req, res) => {
@@ -32,6 +25,6 @@ app.prepare()
   });
 
   server.listen(port, (err) => {
-    if (err) console.log(err);
+    if (err) throw err;
   });
 });
