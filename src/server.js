@@ -14,7 +14,7 @@ app.prepare()
 
   config.forEach(fn => fn(app, server));
 
-	server.use('/', routes);
+  server.use('/', routes);
 
   server.get('*', (req, res) => {
     handle(req, res);
