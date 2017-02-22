@@ -6,21 +6,24 @@ import routes from './routes';
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
-const port = process.env.PORT;
 
-app.prepare()
-.then(() => {
-  const server = express();
+const xp = app.prepare()
+  .then(() => {
+    const server = express();
 
-  config.forEach(fn => fn(app, server));
+    config.forEach(fn => fn(app, server));
 
-  server.use('/', routes);
+    server.use('/', routes);
 
-  server.get('*', (req, res) => {
-    handle(req, res);
+    server.get('*', (req, res) => {
+      handle(req, res);
+    });
+
+    server.listen(process.env.PORT, (err) => {
+      if (err) throw err;
+    });
+
+    return server;
   });
 
-  server.listen(port, (err) => {
-    if (err) throw err;
-  });
-});
+export default xp;

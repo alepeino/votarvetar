@@ -1,0 +1,5 @@
+{
+  "verbose": true,
+  "ignore": ["test/*", ".next/*", "dist/*", "migrations/*"],
+  "ext": "js"
+}

@@ -6,11 +6,11 @@
   "scripts": {
     "clean": "rm -rf dist",
     "lint": "eslint .",
-    "dev": "env-cmd .env nodemon src/server.js --exec \"node -r babel-register\"",
+    "dev": "env-cmd .env nodemon --config .nodemon.json src/server.js --exec \"node -r babel-register\"",
     "build": "npm run clean && mkdir -p dist && babel src -s -D -d dist && next build",
     "start": "env-cmd .env node dist/server.js",
     "knex": "env-cmd .env knex",
-    "test": "env-cmd .env mocha --compilers js:babel-register"
+    "test": "env-cmd .env mocha --recursive --timeout 10000 --compilers js:babel-register"
   },
   "author": "",
   "license": "ISC",
@@ -29,13 +29,15 @@
   "devDependencies": {
     "babel-cli": "^6.23.0",
     "babel-register": "^6.23.0",
+    "chai": "^3.5.0",
     "eslint": "^3.16.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
     "mocha": "^3.2.0",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "sqlite3": "^3.1.8"
   },
   "babel": {
     "presets": [
