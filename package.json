@@ -1,0 +1,42 @@
+{
+  "name": "votarvetar",
+  "version": "1.0.0",
+  "main": "server/dist/index.js",
+  "repository": "https://github.com/alepeino/votarvetar",
+  "author": "Alejandro Peinó <alepeino@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "env-cmd": "^5.0.0",
+    "express": "^4.15.2",
+    "knex": "^0.12.8",
+    "mysql": "^2.13.0",
+    "next": "beta",
+    "objection": "^0.7.6",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.0",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
+    "nodemon": "^1.11.0",
+    "sqlite3": "^3.1.8"
+  },
+  "scripts": {
+    "dev": "env-cmd .env nodemon -w server --exec babel-node server/src/index.js",
+    "clean": "rm -rf server/dist",
+    "build": "npm run clean && mkdir -p server/dist && babel server/src -s -D -d server/dist && next build",
+    "start": "env-cmd .env node server/dist/index.js",
+    "lint": "eslint .",
+    "knex": "env-cmd .env knex"
+  },
+  "babel": {
+    "presets": [
+      "latest",
+      "next/babel"
+    ]
+  }
+}

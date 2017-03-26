@@ -1,0 +1,12 @@
+{
+  "extends": "airbnb",
+  "plugins": [
+    "react",
+    "jsx-a11y"
+  ],
+  "rules": {
+    "no-tabs": ["off"],
+    "react/jsx-filename-extension": ["off"],
+    "react/react-in-jsx-scope": ["off"]
+  }
+}
